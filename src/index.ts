@@ -356,7 +356,7 @@ export default {
 
 		try {
 			const worker = env.DISPATCHER.get(workerName);
-			return await worker.fetch(request);
+			return worker.fetch(request);
 		} catch (e) {
 			if (e.message.startsWith("Worker not found")) {
 				return new Response(`Worker '${workerName}' not found`, {
