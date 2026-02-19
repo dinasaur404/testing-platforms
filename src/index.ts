@@ -355,7 +355,7 @@ export default {
 		const workerName = pathSegments[0];
 
 		try {
-			const worker = env.DISPATCHER.get(workerName);
+			const worker = env.DISPATCHER.get(workerName, {}, {outbound:{}});
 			return worker.fetch(request);
 		} catch (e) {
 			if (e.message.startsWith("Worker not found")) {
